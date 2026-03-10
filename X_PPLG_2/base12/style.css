@@ -1,0 +1,206 @@
+/* Mengambil Font Google untuk nuansa elegan */
+@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --cny-red: #b30000;
+    --cny-gold: #ffd700;
+    --cny-dark: #2c0000;
+}
+
+/* Container Naga di Latar Belakang */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Pastikan ganti URL ini dengan link gambar naga PNG transparan milikmu */
+    background-image: url('https://img.icons8.com/color/512/dragon.png'); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+    opacity: 0.15;
+    z-index: -2;
+    pointer-events: none; /* Agar tidak menghalangi klik pada tombol */
+    transition: transform 0.2s ease-out; /* Animasi smooth saat bergerak */
+}
+
+/* Efek Interaktif: Saat mouse mendekati area (hover body) 
+   Naga akan sedikit bergeser dan membesar seolah mendekat */
+body:hover::after {
+    transform: scale(1.1) translate(10px, -10px) rotate(2deg);
+    opacity: 0.25;
+}
+
+/* Tambahan: Kursor Naga (Opsional agar lebih keren) */
+html {
+    cursor: url('https://img.icons8.com/color/32/dragon.png'), auto;
+}
+
+/* Animasi Naga Terbang di Pojok */
+@keyframes dragonFloat {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+.dragon-decor {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 150px;
+    pointer-events: none;
+    animation: dragonFloat 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px var(--cny-gold));
+}
+body {
+    background: radial-gradient(circle, #4a0000 0%, #1a0000 100%);
+    background-attachment: fixed;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Ornamen Latar Belakang (Opsional: Efek Partikel/Lampion) */
+body::before {
+    content: "福"; /* Karakter 'Fu' (Keberuntungan) */
+    position: fixed;
+    top: 10%;
+    right: 5%;
+    font-family: 'Ma+Shan+Zheng', cursive;
+    font-size: 15rem;
+    color: rgba(255, 215, 0, 0.05);
+    z-index: -1;
+}
+
+
+
+h1 {
+    font-family: 'Ma+Shan+Zheng', cursive;
+    color: var(--cny-gold);
+    font-size: 3rem;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+/* Desain Form & Card dengan Efek 3D */
+form {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--cny-gold);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 20px rgba(255, 215, 0, 0.2);
+    transform: perspective(1000px) rotateX(5deg);
+    transition: transform 0.3s;
+    margin-bottom: 40px;
+}
+
+form:hover {
+    transform: perspective(1000px) rotateX(0deg);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--cny-gold);
+}
+
+input[type="text"] {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--cny-gold);
+    padding: 12px;
+    border-radius: 8px;
+    color: white;
+    width: 250px;
+    margin-right: 10px;
+}
+
+/* Tombol dengan Efek Animasi Pulsa */
+input[type="submit"], button {
+    background: linear-gradient(45deg, #d4af37, #ffd700);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    color: var(--cny-dark);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+input[type="submit"]:hover, button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+    background: linear-gradient(45deg, #ffd700, #fff);
+}
+
+/* Desain Tabel Modern */
+table {
+    width: 80%;
+    max-width: 800px;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+th {
+    background-color: var(--cny-red);
+    color: var(--cny-gold);
+    padding: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+tr:hover {
+    background: rgba(255, 215, 0, 0.1);
+    transition: 0.3s;
+}
+
+/* Link Aksi (Hapus & Rubah) */
+a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+td a[href*="hapus"] { color: #ff4d4d; }
+td a[href*="rubah"] { color: #4da6ff; }
+
+td a:hover {
+    text-decoration: underline;
+    filter: brightness(1.2);
+}
+
+hr {
+    width: 100%;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, transparent, var(--cny-gold), transparent);
+    margin: 40px 0;
+}
+
+/* Animasi Muncul (Fade In) */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+body > * {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
